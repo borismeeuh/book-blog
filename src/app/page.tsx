@@ -1,10 +1,15 @@
-export default function Home() {
-  return (
-      <main className="min-h-screen bg-zinc-50 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-50 flex flex-col items-center justify-center">
-        <h1 className="text-4xl font-bold mb-4">📚 Mijn Boekenblog</h1>
-        <p className="text-lg text-zinc-600 dark:text-zinc-400">
-          Welkom! Hier komen straks mijn boekrecensies en schrijfsels.
-        </p>
-      </main>
-  );
+import { getAllPosts } from "@/lib/posts";
+import BlogList from "@/components/BlogList";
+
+export default async function HomePage() {
+    const posts = getAllPosts();
+
+    return (
+        <main className="min-h-screen py-20 px-8 bg-zinc-50 dark:bg-black">
+            <section className="max-w-3xl mx-auto space-y-8">
+                <h1 className="text-4xl font-bold text-center">Welkom!</h1>
+                <BlogList posts={posts} />
+            </section>
+        </main>
+    );
 }
