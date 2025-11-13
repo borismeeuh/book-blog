@@ -1,5 +1,5 @@
 import { getAllPosts } from "@/lib/posts";
-import BlogList from "@/components/BlogList";
+import BlogListWithFilters from "@/components/BlogListWithFilters";
 
 export default async function BlogPage() {
     const posts = getAllPosts();
@@ -7,7 +7,7 @@ export default async function BlogPage() {
     return (
         <main className="min-h-screen py-20 px-8 bg-zinc-50 dark:bg-black">
             <div className="max-w-3xl mx-auto">
-                <BlogList posts={posts} />
+                <BlogListWithFilters posts={posts} />
             </div>
         </main>
     );
