@@ -29,7 +29,7 @@ export default function RootLayout({
         >
         <header className="w-full border-b border-zinc-200 dark:border-zinc-700 p-4">
             <div className="max-w-4xl mx-auto flex justify-between items-center">
-                <h1 className="text-2xl font-bold">📚 Mijn Boekenblog</h1>
+                <h1 className="text-2xl font-bold">Mijn Boekenblog</h1>
                 <nav className="space-x-4">
                     <a href="/" className="hover:underline">
                         Home

@@ -1,7 +1,9 @@
 ---
 title: "Historiën"
 author: "Herodotus"
-genre: "Geschiedenis, Fictie"
+genre: 
+    - Geschiedenis
+    - Fictie
 ---
 
-Een praktisch boek over hoe kleine gewoontes leiden tot grote veranderingen, geschreven door James Clear.
+Een van de oudste geschiedkundige werken, waarin Herodotus de gebeurtenissen, legendes en culturen van de oudheid beschrijft. Het boek mengt feit met mythe en wordt daarom zowel als geschiedenis als vroege literatuur beschouwd.

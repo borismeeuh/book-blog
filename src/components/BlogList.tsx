@@ -17,7 +17,7 @@ export default function BlogList({ posts }: { posts: BlogPost[] }) {
                 {posts.map((post) => (
                     <li key={post.slug}>
                         <Link
-                            href={`/blog/${post.slug}`}
+                            href={`/blogs/${post.slug}`}
                             className="text-lg text-blue-600 hover:underline"
                         >
                             {post.title}
