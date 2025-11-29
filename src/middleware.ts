@@ -1,21 +1,19 @@
 import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
 
 export const config = {
-    matcher: ['/((?!_next|favicon.ico).*)'],
+    matcher: ["/((?!_next|favicon.ico).*)"],
 };
 
-export function middleware(req: Request) {
+export function middleware(req: NextRequest) {
+    const { pathname } = req.nextUrl;
 
-    const url = new URL(req.url);
-
-    if (url.pathname === "/") {
-        url.pathname = "/nl";
-        return NextResponse.redirect(url);
+    if (pathname === "/") {
+        return NextResponse.redirect(new URL("/nl", req.url));
     }
 
-    if (url.pathname === "/blogs") {
-        url.pathname = "/nl/blogs";
-        return NextResponse.redirect(url);
+    if (pathname === "/blogs") {
+        return NextResponse.redirect(new URL("/nl/blogs", req.url));
     }
 
     return NextResponse.next();
