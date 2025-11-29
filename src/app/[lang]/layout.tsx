@@ -31,7 +31,7 @@ export default async function LangLayout({children, params,}: { children: React.
                             <a href={`/${lang}`} className="hover:underline">
                                 Home
                             </a>
-                            <a href={`/${lang}/over`} className="hover:underline">
+                            <a href={`/${lang}/about`} className="hover:underline">
                                 Over mij
                             </a>
                             <a href={`/${lang}/blogs`} className="hover:underline">
