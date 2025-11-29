@@ -1,8 +1,9 @@
 import { getAllPosts } from "@/lib/posts";
 import BlogListWithFilters from "@/components/BlogListWithFilters";
 
-export default async function HomePage() {
-    const posts = getAllPosts();
+export default async function HomePage({ params }: { params: Promise<{ lang: string }> }) {
+    const { lang } = await params;
+    const posts = getAllPosts(lang);
 
     return (
         <main className="min-h-screen py-20 px-8 bg-zinc-50 dark:bg-black">
