@@ -4,12 +4,17 @@ import matter from "gray-matter";
 import { remark } from "remark";
 import html from "remark-html";
 
-const contentDir = path.join(process.cwd(), "content");
+const contentRoot = path.join(process.cwd(), "content");
 
-export async function getPost(slug: string) {
+export async function getPost(lang: string, slug: string) {
+    const contentDir = path.join(contentRoot, lang);
     const filePath = path.join(contentDir, `${slug}.md`);
-    const fileContents = fs.readFileSync(filePath, "utf8");
 
+    if (!fs.existsSync(filePath)) {
+        throw new Error(`Post '${slug}' not found in language '${lang}'`);
+    }
+
+    const fileContents = fs.readFileSync(filePath, "utf8");
     const { data, content } = matter(fileContents);
 
     const processedContent = await remark().use(html).process(content);
@@ -21,14 +26,26 @@ export async function getPost(slug: string) {
         title: data.title,
         author: data.author,
         genre: data.genre,
+        lang,
     };
 }
 
-export function getAllPosts() {
-    const files = fs.readdirSync(contentDir);
+export function getAllPosts(lang: string) {
+    const contentDir = path.join(contentRoot, lang);
+
+    if (!fs.existsSync(contentDir)) return [];
+
+    const files = fs
+        .readdirSync(contentDir, { withFileTypes: true })
+        .filter((file) => file.isFile() && file.name.endsWith(".md"))
+        .map((file) => file.name);
 
     return files.map((filename) => {
-        const fileContents = fs.readFileSync(path.join(contentDir, filename), "utf8");
+        const fileContents = fs.readFileSync(
+            path.join(contentDir, filename),
+            "utf8"
+        );
+
         const { data } = matter(fileContents);
         const slug = filename.replace(/\.md$/, "");
 
@@ -37,6 +54,7 @@ export function getAllPosts() {
             title: data.title,
             author: data.author,
             genre: data.genre,
+            lang,
         };
     });
 }
