@@ -5,7 +5,7 @@ export const config = {
     matcher: ["/((?!_next|favicon.ico).*)"],
 };
 
-export function middleware(req: NextRequest) {
+export function proxy(req: NextRequest) {
     const { pathname } = req.nextUrl;
 
     if (pathname === "/") {

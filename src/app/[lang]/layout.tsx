@@ -2,6 +2,7 @@ import React from "react";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../globals.css";
+import LanguageToggle from "@/components/LanguageToggle";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -32,11 +33,12 @@ export default async function LangLayout({children, params,}: { children: React.
                                 Home
                             </a>
                             <a href={`/${lang}/about`} className="hover:underline">
-                                Over mij
+                                {lang === 'nl' ? "Over deze site" : "About"}
                             </a>
                             <a href={`/${lang}/blogs`} className="hover:underline">
                                 Blogs
                             </a>
+                            <LanguageToggle lang={lang} />
                         </nav>
                     </div>
                 </header>

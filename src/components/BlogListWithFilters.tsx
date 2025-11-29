@@ -12,11 +12,11 @@ interface BlogPost {
 }
 
 interface Props {
+    lang: string;
     posts: BlogPost[];
 }
 
-
-export default function BlogListWithFilters({ posts }: Props) {
+export default function BlogListWithFilters({ posts, lang }: Props) {
     const router = useRouter();
 
     const genres = Array.from(
@@ -55,7 +55,7 @@ export default function BlogListWithFilters({ posts }: Props) {
             <div className="flex flex-col sm:flex-row gap-4">
                 <input
                     type="text"
-                    placeholder="Zoek op titel of auteur..."
+                    placeholder={lang === 'nl' ? "Zoek op otitel of auteur..." : "Search for title or author..."}
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
                     className="flex-1 border border-zinc-300 rounded-md px-3 py-2"
@@ -66,7 +66,7 @@ export default function BlogListWithFilters({ posts }: Props) {
                     onChange={(e) => setGenre(e.target.value)}
                     className="border border-zinc-300 rounded-md px-3 py-2"
                 >
-                    <option value="alle">Alle genres</option>
+                    <option value="alle">{lang === 'nl' ? "Alle genres" : "All genres"}</option>
                     {genres.map((g) => (
                         <option key={g} value={g}>
                             {g}
@@ -90,7 +90,7 @@ export default function BlogListWithFilters({ posts }: Props) {
                         </li>
                     ))
                 ) : (
-                    <p className="text-zinc-500">Geen resultaten gevonden 😔</p>
+                    <p className="text-zinc-500">{lang === 'nl' ? "Geen resultaten gevonden" : "No results found"}</p>
                 )}
             </ul>
         </section>
