@@ -30,10 +30,11 @@ export default async function LangLayout({children, params,}: { children: React.
                     <div className="max-w-4xl mx-auto flex justify-between items-center">
                         <h1 className="text-2xl font-bold">
                             <Link
+                                className="text-classic-accent"
                                 href={`/${lang}`}
                                 hrefLang={lang}
                             >
-                                Mijn Boekenblog
+                                Home
                             </Link>
                         </h1>
                         <nav className="space-x-4">
