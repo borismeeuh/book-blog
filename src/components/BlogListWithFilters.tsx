@@ -80,7 +80,10 @@ export default function BlogListWithFilters({ posts, lang }: Props) {
                 {filteredPosts.length > 0 ? (
                     filteredPosts.map((post) => (
                         <li key={post.slug} className="border-b border-zinc-200 pb-2">
-                            <Link href={`/${lang}/blogs/${post.slug}`}>
+                            <Link
+                                href={`/${lang}/blogs/${post.slug}`}
+                                hrefLang={lang}
+                            >
                                 <h2 className="text-xl font-semibold hover:underline">
                                     {post.title}
                                 </h2>

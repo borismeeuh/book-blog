@@ -1,6 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 export default function LanguageToggle({ lang }: { lang: string }) {
     const pathname = usePathname();
@@ -10,8 +11,11 @@ export default function LanguageToggle({ lang }: { lang: string }) {
     const newPath = parts.join("/");
 
     return (
-        <a href={newPath} className="hover:underline">
+        <Link
+            href={newPath}
+            hrefLang={lang}
+            className="hover:underline">
             {lang === "nl" ? "English" : "Nederlands"}
-        </a>
+        </Link>
     );
 }

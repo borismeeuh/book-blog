@@ -29,15 +29,26 @@ export default async function LangLayout({children, params,}: { children: React.
                 <header className="w-full border-b border-zinc-200 dark:border-zinc-700 p-4">
                     <div className="max-w-4xl mx-auto flex justify-between items-center">
                         <h1 className="text-2xl font-bold">
-                            <Link href={`/${lang}`}>
+                            <Link
+                                href={`/${lang}`}
+                                hrefLang={lang}
+                            >
                                 Mijn Boekenblog
                             </Link>
                         </h1>
                         <nav className="space-x-4">
-                            <Link href={`/${lang}/about`} className="hover:underline">
+                            <Link
+                                className="hover:underline"
+                                href={`/${lang}/about`}
+                                hrefLang={lang}
+                            >
                                 {lang === 'nl' ? "Over deze site" : "About"}
                             </Link>
-                            <Link href={`/${lang}/blogs`} className="hover:underline">
+                            <Link
+                                className="hover:underline"
+                                href={`/${lang}/blogs`}
+                                hrefLang={lang}
+                            >
                                 Blogs
                             </Link>
                             <LanguageToggle lang={lang} />
