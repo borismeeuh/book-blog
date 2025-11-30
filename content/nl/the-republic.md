@@ -1,4 +1,5 @@
 ---
+id: 'de-staat'
 title: "De Staat"
 author: "Plato"
 date: "2022-03-29"

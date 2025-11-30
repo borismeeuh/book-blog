@@ -1,4 +1,5 @@
 ---
+id: 'de-staat'
 title: "The Republic"
 author: "Plato"
 date: "2022-03-29"
