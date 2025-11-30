@@ -9,6 +9,7 @@ interface BlogPost {
     title: string;
     author: string;
     genre: string[];
+    date: Date;
 }
 
 interface Props {
@@ -55,7 +56,7 @@ export default function BlogListWithFilters({ posts, lang }: Props) {
             <div className="flex flex-col sm:flex-row gap-4">
                 <input
                     type="text"
-                    placeholder={lang === 'nl' ? "Zoek op otitel of auteur..." : "Search for title or author..."}
+                    placeholder={lang === 'nl' ? "Zoek op titel of auteur..." : "Search for title or author..."}
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
                     className="flex-1 border border-zinc-300 rounded-md px-3 py-2"
@@ -79,14 +80,19 @@ export default function BlogListWithFilters({ posts, lang }: Props) {
                 {filteredPosts.length > 0 ? (
                     filteredPosts.map((post) => (
                         <li key={post.slug} className="border-b border-zinc-200 pb-2">
-                            <Link href={`/blogs/${post.slug}`}>
+                            <Link href={`/${lang}/blogs/${post.slug}`}>
                                 <h2 className="text-xl font-semibold hover:underline">
                                     {post.title}
                                 </h2>
                             </Link>
-                            <p className="text-sm text-zinc-600">
-                                door {post.author} – {post.genre}
-                            </p>
+                            <div className="flex flex-wrap justify-between">
+                                <p className="text-sm text-zinc-600">
+                                    {post.author} – {post.genre.join(", ")}
+                                </p>
+                                <p className="text-sm text-zinc-600">
+                                    {post.date.toLocaleDateString("nl-NL")}
+                                </p>
+                            </div>
                         </li>
                     ))
                 ) : (

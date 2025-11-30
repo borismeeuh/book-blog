@@ -1,6 +1,7 @@
 ---
 title: "History of the Peloponnesian War"
 author: "Thucydides"
+date: "2024-01-15"
 genre:
   - History
   - Non-fiction

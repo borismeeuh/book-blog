@@ -1,6 +1,7 @@
 ---
 title: "Geschiedenis van de Peloponnesische Oorlog"
 author: "Thucydides"
+date: "2024-01-15"
 genre:
   - Geschiedenis
   - Non-fictie

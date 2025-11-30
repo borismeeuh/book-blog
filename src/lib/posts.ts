@@ -25,6 +25,7 @@ export async function getPost(lang: string, slug: string) {
         contentHtml,
         title: data.title,
         author: data.author,
+        date: new Date(data.date),
         genre: data.genre,
         lang,
     };
@@ -40,7 +41,7 @@ export function getAllPosts(lang: string) {
         .filter((file) => file.isFile() && file.name.endsWith(".md"))
         .map((file) => file.name);
 
-    return files.map((filename) => {
+    const posts = files.map((filename) => {
         const fileContents = fs.readFileSync(
             path.join(contentDir, filename),
             "utf8"
@@ -53,8 +54,11 @@ export function getAllPosts(lang: string) {
             slug,
             title: data.title,
             author: data.author,
+            date: new Date(data.date),
             genre: data.genre,
             lang,
         };
     });
+
+    return posts.sort((a, b) => b.date.getTime() - a.date.getTime());
 }

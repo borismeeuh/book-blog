@@ -8,7 +8,10 @@ export default async function BlogPage({ params }: { params: Promise<{ lang: str
     return (
         <main className="min-h-screen py-20 px-8 bg-zinc-50 dark:bg-black">
             <div className="max-w-3xl mx-auto">
-                <BlogListWithFilters posts={posts} />
+                <BlogListWithFilters
+                    lang={lang}
+                    posts={posts}
+                />
             </div>
         </main>
     );

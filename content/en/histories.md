@@ -1,6 +1,7 @@
 ---
 title: "Histories"
 author: "Herodotus"
+date: "2025-03-29"
 genre:
   - History
   - Fiction

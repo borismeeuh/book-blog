@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../globals.css";
 import LanguageToggle from "@/components/LanguageToggle";
+import Link from "next/link";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -27,17 +28,18 @@ export default async function LangLayout({children, params,}: { children: React.
             <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-zinc-50 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-50`}>
                 <header className="w-full border-b border-zinc-200 dark:border-zinc-700 p-4">
                     <div className="max-w-4xl mx-auto flex justify-between items-center">
-                        <h1 className="text-2xl font-bold">Mijn Boekenblog</h1>
+                        <h1 className="text-2xl font-bold">
+                            <Link href={`/${lang}`}>
+                                Mijn Boekenblog
+                            </Link>
+                        </h1>
                         <nav className="space-x-4">
-                            <a href={`/${lang}`} className="hover:underline">
-                                Home
-                            </a>
-                            <a href={`/${lang}/about`} className="hover:underline">
+                            <Link href={`/${lang}/about`} className="hover:underline">
                                 {lang === 'nl' ? "Over deze site" : "About"}
-                            </a>
-                            <a href={`/${lang}/blogs`} className="hover:underline">
+                            </Link>
+                            <Link href={`/${lang}/blogs`} className="hover:underline">
                                 Blogs
-                            </a>
+                            </Link>
                             <LanguageToggle lang={lang} />
                         </nav>
                     </div>
