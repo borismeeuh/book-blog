@@ -14,7 +14,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
             <h2 className="text-3xl font-bold">{post.title}</h2>
 
             <p className="text-zinc-500 text-sm">
-                door {post.author} – genre: {post.genre}
+                {post.author} – {post.genre.join(", ")}
             </p>
 
             <div
