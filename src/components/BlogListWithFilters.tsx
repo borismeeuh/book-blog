@@ -27,9 +27,11 @@ export default function BlogListWithFilters({ posts, lang }: Props) {
 
     const initialSearch = searchParams.get("search") || "";
     const initialGenre = searchParams.get("genre") || "alle";
+    const initialSort = "desc";
 
     const [search, setSearch] = useState(initialSearch);
     const [genre, setGenre] = useState(initialGenre);
+    const [sortOrder, setSortOrder] = useState<"asc" | "desc">(initialSort as "asc" | "desc");
 
     useEffect(() => {
         const params = new URLSearchParams();
@@ -41,7 +43,7 @@ export default function BlogListWithFilters({ posts, lang }: Props) {
         router.replace(`?${queryString}`, { scroll: false });
     }, [search, genre, router]);
 
-    const filteredPosts = posts.filter((post) => {
+    let filteredPosts = posts.filter((post) => {
         const matchSearch =
             post.title.toLowerCase().includes(search.toLowerCase()) ||
             post.author.toLowerCase().includes(search.toLowerCase());
@@ -49,6 +51,12 @@ export default function BlogListWithFilters({ posts, lang }: Props) {
         const matchGenre = genre === "alle" || post.genre.includes(genre);
 
         return matchSearch && matchGenre;
+    });
+
+    filteredPosts = filteredPosts.sort((a, b) => {
+        return sortOrder === "asc"
+            ? a.date.getTime() - b.date.getTime()
+            : b.date.getTime() - a.date.getTime();
     });
 
     return (
@@ -74,6 +82,19 @@ export default function BlogListWithFilters({ posts, lang }: Props) {
                         </option>
                     ))}
                 </select>
+
+                <button
+                    onClick={() => setSortOrder((prev) => (prev === "desc" ? "asc" : "desc"))}
+                    className="border border-zinc-300 rounded-md px-3 py-2 hover:bg-zinc-100 dark:hover:bg-zinc-800"
+                >
+                    {sortOrder === "desc"
+                        ? lang === "nl"
+                            ? "Nieuw → Oud"
+                            : "Newest → Oldest"
+                        : lang === "nl"
+                            ? "Oud → Nieuw"
+                            : "Oldest → Newest"}
+                </button>
             </div>
 
             <ul className="space-y-3">
