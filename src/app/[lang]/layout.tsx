@@ -1,17 +1,12 @@
 import React from "react";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "../globals.css";
 import LanguageToggle from "@/components/LanguageToggle";
 import Link from "next/link";
 
-const geistSans = Geist({
-    variable: "--font-geist-sans",
-    subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-    variable: "--font-geist-mono",
+const montserrat = Montserrat({
+    variable: "--font-montserrat",
     subsets: ["latin"],
 });
 
@@ -24,13 +19,12 @@ export default async function LangLayout({children, params,}: { children: React.
     const { lang } = await params;
 
     return (
-        <html lang={lang}>
-            <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-zinc-50 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-50`}>
-                <header className="w-full border-b border-zinc-200 dark:border-zinc-700 p-4">
+        <html lang={lang} className={montserrat.variable}>
+            <body className="text-zinc-900 dark:bg-zinc-900 dark:text-zinc-50">
+                <header className="w-full bg-stone-900 border-b border-zinc-200 dark:border-zinc-700 p-4">
                     <div className="max-w-4xl mx-auto flex justify-between items-center">
                         <h1 className="text-2xl font-bold">
                             <Link
-                                className="text-classic-accent"
                                 href={`/${lang}`}
                                 hrefLang={lang}
                             >

@@ -8,8 +8,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-montserrat);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -20,52 +19,7 @@
 }
 
 body {
-  background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-@theme colors {
-  /* Classic */
-  --color-classic-primary: #2E2A27;
-  --color-classic-secondary: #6A5F4D;
-  --color-classic-accent: #C9A66B;
-  --color-classic-background: #F7F3E9;
-  --color-classic-highlight: #A67C52;
-
-  /* Minimal */
-  --color-minimal-primary: #1F2937;
-  --color-minimal-secondary: #4B5563;
-  --color-minimal-accent: #3B82F6;
-  --color-minimal-background: #F9FAFB;
-  --color-minimal-muted: #D1D5DB;
-
-  /* Cozy */
-  --color-cozy-primary: #4B2E23;
-  --color-cozy-secondary: #8C5E3C;
-  --color-cozy-accent: #D97A40;
-  --color-cozy-background: #FAF3E0;
-  --color-cozy-soft: #E0C9A6;
-
-  /* Darklit */
-  --color-darklit-primary: #EAEAEA;
-  --color-darklit-secondary: #8B8B8B;
-  --color-darklit-background: #121212;
-  --color-darklit-accent: #A855F7;
-  --color-darklit-muted: #1F1F1F;
-
-  /* Bookstore */
-  --color-bookstore-primary: #2C3E50;
-  --color-bookstore-secondary: #95A5A6;
-  --color-bookstore-accent: #E67E22;
-  --color-bookstore-background: #ECF0F1;
-  --color-bookstore-extra: #34495E;
-
-  /* Romantic */
-  --color-romantic-primary: #3A2E39;
-  --color-romantic-secondary: #E4C1F9;
-  --color-romantic-accent: #F694C1;
-  --color-romantic-background: #FFF6FA;
-  --color-romantic-highlight: #C492F2;
+  font-family: var(--font-sans);
 }
 
