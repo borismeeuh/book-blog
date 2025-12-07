@@ -22,11 +22,18 @@ export default function ThemeToggle() {
         const newTheme = isDark ? "light" : "dark";
 
         gsap.to(iconRef.current, {
-            duration: 0.8,
+            duration: 0.3,
             morphSVG: isDark ? SUN : MOON,
             ease: "power2.inOut",
             onComplete: () => {
-                setTheme(newTheme);
+                if (!document.startViewTransition()) {
+                    setTheme(newTheme);
+                    return
+                }
+
+                document.startViewTransition(() => {
+                    setTheme(newTheme);
+                })
             },
         });
     }
