@@ -21,7 +21,7 @@ export default async function LangLayout({children, params,}: { children: React.
     const { lang } = await params;
 
     return (
-        <html lang={lang} className={montserrat.variable}>
+        <html lang={lang} className={montserrat.variable} suppressHydrationWarning>
             <head>
                 <script
                     dangerouslySetInnerHTML={{
