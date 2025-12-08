@@ -35,6 +35,6 @@ body {
 
 @keyframes theme-toggle-circle {
     from { clip-path: circle(0% at 100% 0%) }
-    to { clip-path: circle(130% at 50% 0%) }
+    to { clip-path: circle(100% at 50% 0%) }
 }
 

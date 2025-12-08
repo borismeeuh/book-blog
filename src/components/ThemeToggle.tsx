@@ -39,7 +39,7 @@ export default function ThemeToggle() {
     }
 
     return (
-        <button onClick={toggleTheme} className="p-2 transition-colors">
+        <button onClick={toggleTheme} className="p-2 hover:cursor-pointer">
             <svg width="24" height="24" viewBox="0 0 24 24">
                 <path
                     ref={iconRef}
