@@ -1,9 +1,12 @@
 import React from "react";
 import type { Metadata } from "next";
+import Link from "next/link";
+
 import { Montserrat } from "next/font/google";
 import "../globals.css";
+
 import LanguageToggle from "@/components/LanguageToggle";
-import Link from "next/link";
+import LogoComponent from "@/components/LogoComponent";
 import {ThemeProvider} from "@/components/theme-provider";
 import ThemeToggle from "@/components/ThemeToggle";
 
@@ -13,8 +16,8 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-    title: "Mijn Boekenblog",
-    description: "Lees mijn recensies, gedachten en boekentips.",
+    title: "My book blog",
+    description: "Thoughts about books that I like",
 };
 
 export default async function LangLayout({children, params,}: { children: React.ReactNode; params: Promise<{ lang: string }>; }) {
@@ -45,7 +48,7 @@ export default async function LangLayout({children, params,}: { children: React.
                                     href={`/${lang}`}
                                     hrefLang={lang}
                                 >
-                                    Home
+                                    <LogoComponent />
                                 </Link>
                             </h1>
                             <nav className="space-x-4 flex items-center justify-between">
