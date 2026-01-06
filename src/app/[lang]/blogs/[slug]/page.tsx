@@ -11,14 +11,14 @@ export default async function BlogPost({ params }: BlogPostProps) {
 
     return (
         <article className="space-y-4">
-            <h2 className="text-3xl font-bold">{post.title}</h2>
+            <h2 className="text-3xl font-bold text-stone-800 dark:text-stone-50">{post.title}</h2>
 
-            <p className="text-zinc-500 text-sm">
+            <p className="text-stone-800 dark:text-stone-50 opacity-75 text-sm">
                 {post.author} – {post.genre.join(", ")}
             </p>
 
             <div
-                className="prose prose-zinc dark:prose-invert"
+                className="prose prose-zinc dark:prose-invert text-stone-800 dark:text-stone-50"
                 dangerouslySetInnerHTML={{ __html: post.contentHtml }}
             />
         </article>

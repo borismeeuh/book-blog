@@ -67,25 +67,27 @@ export default function BlogListWithFilters({ posts, lang }: Props) {
                     placeholder={lang === 'nl' ? "Zoek op titel of auteur..." : "Search for title or author..."}
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
-                    className="flex-1 border border-zinc-300 rounded-md px-3 py-2"
+                    className="flex-1 border-b border-b-stone-800 dark:border-b-stone-50 px-3 py-2 text-stone-800 dark:text-stone-50 dark:placeholder:text-stone-50 placeholder:text-stone-800"
+                    name="search"
                 />
 
                 <select
                     value={genre}
                     onChange={(e) => setGenre(e.target.value)}
-                    className="border border-zinc-300 rounded-md px-3 py-2"
+                    className="border-b border-b-stone-800 dark:border-b-stone-50 text-stone-800 dark:text-stone-50 px-3 py-2 hover:cursor-pointer active:border-none"
+                    name="genre-select"
                 >
-                    <option value="alle">{lang === 'nl' ? "Alle genres" : "All genres"}</option>
-                    {genres.map((g) => (
-                        <option key={g} value={g}>
-                            {g}
+                    <option value="alle" className="bg-zinc-200 dark:bg-stone-900 text-zinc-900 dark:text-stone-100">{lang === 'nl' ? "Alle genres" : "All genres"}</option>
+                    {genres.map((genre) => (
+                        <option key={genre} value={genre} className="bg-zinc-200 dark:bg-stone-900 text-zinc-900 dark:text-stone-100">
+                            {genre}
                         </option>
                     ))}
                 </select>
 
                 <button
                     onClick={() => setSortOrder((prev) => (prev === "desc" ? "asc" : "desc"))}
-                    className="border border-zinc-300 rounded-md px-3 py-2 hover:bg-zinc-100 dark:hover:bg-zinc-800"
+                    className="border-b border-b-stone-800 dark:border-b-stone-50 text-stone-800 dark:text-stone-50 px-3 py-2 hover:cursor-pointer"
                 >
                     {sortOrder === "desc"
                         ? lang === "nl"
@@ -100,20 +102,20 @@ export default function BlogListWithFilters({ posts, lang }: Props) {
             <ul className="space-y-3">
                 {filteredPosts.length > 0 ? (
                     filteredPosts.map((post) => (
-                        <li key={post.slug} className="border-b border-zinc-200 pb-2">
+                        <li key={post.slug} className="border-b border-stone-800 dark:border-b-stone-50 pb-2">
                             <Link
                                 href={`/${lang}/blogs/${post.slug}`}
                                 hrefLang={lang}
                             >
-                                <h2 className="text-xl font-semibold hover:underline">
+                                <h2 className="text-xl font-semibold hover:underline text-stone-800 dark:text-stone-50">
                                     {post.title}
                                 </h2>
                             </Link>
                             <div className="flex flex-wrap justify-between">
-                                <p className="text-sm text-zinc-600">
+                                <p className="text-sm text-stone-800 dark:text-stone-50 opacity-75">
                                     {post.author} – {post.genre.join(", ")}
                                 </p>
-                                <p className="text-sm text-zinc-600">
+                                <p className="text-sm text-stone-800 dark:text-stone-50 opacity-75">
                                     {post.date.toLocaleDateString("nl-NL")}
                                 </p>
                             </div>

@@ -6,14 +6,12 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
     const posts = getAllPosts(lang);
 
     return (
-        <main className="min-h-screen py-20 px-8 bg-transparent">
-            <section className="max-w-3xl mx-auto space-y-8">
-                <h1 className="text-4xl font-boldsd">{lang === 'nl' ? "Welkom" : "Welcome"}!</h1>
-                <BlogListWithFilters
-                    lang={lang}
-                    posts={posts}
-                />
-            </section>
-        </main>
+        <section className="max-w-3xl mx-auto space-y-8">
+            <h1 className="text-4xl text-stone-800 dark:text-stone-50">{lang === 'nl' ? "Welkom" : "Welcome"}!</h1>
+            <BlogListWithFilters
+                lang={lang}
+                posts={posts}
+            />
+        </section>
     );
 }
