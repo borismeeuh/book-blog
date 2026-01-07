@@ -1,4 +1,5 @@
 import { getPost } from "@/lib/posts";
+import BackButton from "@/components/BackButton";
 
 interface BlogPostProps {
     params: Promise<{ lang: string; slug: string }>;
@@ -11,6 +12,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
 
     return (
         <article className="space-y-4">
+            <BackButton lang={lang} />
             <h2 className="text-3xl font-bold text-stone-800 dark:text-stone-50">{post.title}</h2>
 
             <p className="text-stone-800 dark:text-stone-50 opacity-75 text-sm">

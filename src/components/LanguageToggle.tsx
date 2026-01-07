@@ -14,7 +14,7 @@ export default function LanguageToggle({ lang }: { lang: string }) {
         <Link
             href={newPath}
             hrefLang={lang}
-            className="hover:underline">
+            className="underline-hover">
             {lang === "nl" ? "EN" : "NL"}
         </Link>
     );

@@ -53,14 +53,14 @@ export default async function LangLayout({children, params,}: { children: React.
                             </h1>
                             <nav className="space-x-4 flex items-center justify-between">
                                 <Link
-                                    className="hover:underline"
+                                    className="underline-hover"
                                     href={`/${lang}/about`}
                                     hrefLang={lang}
                                 >
                                     {lang === 'nl' ? "Over deze site" : "About"}
                                 </Link>
                                 <Link
-                                    className="hover:underline"
+                                    className="underline-hover"
                                     href={`/${lang}/blogs`}
                                     hrefLang={lang}
                                 >
