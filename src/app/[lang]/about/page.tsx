@@ -13,8 +13,13 @@ export default async function About({ params }: { params: Promise<{ lang: string
                 <>
                     <p className="text-lg text-zinc-700 dark:text-zinc-300">
                         Deze site is gebouwd met Next.js, TypeScript en Tailwind. Een moderne stack met veel
-                        mogelijkheden voor performance optimalisaties, goede onderhoudbaarheid en uiteraard volledig
+                        mogelijkheden voor performance-verbetering, goede onderhoudbaarheid en uiteraard volledig
                         responsive.
+                    </p>
+                    <p className="text-lg text-zinc-700 dark:text-zinc-300">
+                        Daarnaast is er veel aandacht besteed aan optimalisaties. Snelle performance, geoptimaliseerde
+                        toegankelijkheid (a11y) en perfecte SEO prestaties. Allemaal onderdelen van development
+                        die van groot belang zijn in het moderne front-endvakgebied.
                     </p>
                 </>
             ) : (
