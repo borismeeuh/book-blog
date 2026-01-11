@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, ViewTransition } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 
@@ -77,9 +77,11 @@ export default function BlogListWithFilters({ posts, lang }: Props) {
                     className="border-b border-b-stone-800 dark:border-b-stone-50 text-stone-800 dark:text-stone-50 px-3 py-2 hover:cursor-pointer active:border-none"
                     name="genre-select"
                 >
-                    <option value="alle" className="bg-zinc-200 dark:bg-stone-900 text-zinc-900 dark:text-stone-100">{lang === 'nl' ? "Alle genres" : "All genres"}</option>
+                    <option value="alle"
+                            className="bg-zinc-200 dark:bg-stone-900 text-zinc-900 dark:text-stone-100">{lang === 'nl' ? "Alle genres" : "All genres"}</option>
                     {genres.map((genre) => (
-                        <option key={genre} value={genre} className="bg-zinc-200 dark:bg-stone-900 text-zinc-900 dark:text-stone-100">
+                        <option key={genre} value={genre}
+                                className="bg-zinc-200 dark:bg-stone-900 text-zinc-900 dark:text-stone-100">
                             {genre}
                         </option>
                     ))}
@@ -103,22 +105,27 @@ export default function BlogListWithFilters({ posts, lang }: Props) {
                 {filteredPosts.length > 0 ? (
                     filteredPosts.map((post) => (
                         <li key={post.slug} className="border-b border-stone-800 dark:border-b-stone-50 pb-2">
-                            <Link
-                                href={`/${lang}/blogs/${post.slug}`}
-                                hrefLang={lang}
-                            >
-                                <h2 className="text-xl font-semibold hover:underline text-stone-800 dark:text-stone-50">
-                                    {post.title}
-                                </h2>
-                            </Link>
-                            <div className="flex flex-wrap justify-between">
-                                <p className="text-sm text-stone-800 dark:text-stone-50 opacity-75">
-                                    {post.author} – {post.genre.join(", ")}
-                                </p>
-                                <p className="text-sm text-stone-800 dark:text-stone-50 opacity-75">
-                                    {post.date.toLocaleDateString("nl-NL")}
-                                </p>
-                            </div>
+                            <ViewTransition name={`blog-title-${post.slug}`}>
+                                <Link
+                                    href={`/${lang}/blogs/${post.slug}`}
+                                    hrefLang={lang}
+                                >
+                                    <h2 className="text-xl font-semibold hover:underline text-stone-800 dark:text-stone-50">
+                                        {post.title}
+                                    </h2>
+                                </Link>
+                            </ViewTransition>
+
+                            <ViewTransition name={`blog-genres-${post.slug}`}>
+                                <div className="flex flex-wrap justify-between">
+                                    <p className="text-sm text-stone-800 dark:text-stone-50 opacity-75">
+                                        {post.author} – {post.genre.join(", ")}
+                                    </p>
+                                    <p className="text-sm text-stone-800 dark:text-stone-50 opacity-75">
+                                        {post.date.toLocaleDateString("nl-NL")}
+                                    </p>
+                                </div>
+                            </ViewTransition>
                         </li>
                     ))
                 ) : (

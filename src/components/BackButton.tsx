@@ -1,13 +1,18 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function BackButton({ lang }: { lang: string }) {
     const router = useRouter();
 
     return (
-            <button onClick={() => router.back()} className="underline-hover">
+        <Link
+            className="underline-hover"
+            href={`/${lang}`}
+            hrefLang={lang}
+        >
             ← { lang === 'en' ? 'Back' : 'Terug'}
-        </button>
+        </Link>
     );
 }
