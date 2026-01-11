@@ -39,9 +39,9 @@ export default async function LangLayout({children, params,}: { children: React.
                     }}
                 />
             </head>
-            <body className="text-zinc-900 bg-stone-400 dark:bg-stone-800 dark:text-zinc-50">
+            <body className="bg-gray-100 dark:bg-stone-800 text-zinc-900 dark:text-zinc-50">
                 <ThemeProvider>
-                    <header className="w-full border-b bg-stone-500 dark:bg-stone-900 text-stone-800 dark:text-stone-50 border-stone-800 dark:border-zinc-700 p-4">
+                    <header className="w-full border-b bg-gray-400 dark:bg-stone-900 text-stone-800 dark:text-stone-50 border-gray-300 dark:border-zinc-700 p-4">
                         <div className="max-w-4xl mx-auto flex justify-between items-center">
                             <h1 className="text-2xl">
                                 <Link
