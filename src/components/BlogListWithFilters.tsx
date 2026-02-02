@@ -121,9 +121,9 @@ export default function BlogListWithFilters({ posts, lang }: Props) {
                                     <p className="text-sm text-stone-800 dark:text-stone-50 opacity-75">
                                         {post.author} – {post.genre.join(", ")}
                                     </p>
-                                    <p className="text-sm text-stone-800 dark:text-stone-50 opacity-75">
+                                    <time dateTime={post.date.toISOString().slice(0, 10)} className="text-sm text-stone-800 dark:text-stone-50 opacity-75">
                                         {post.date.toLocaleDateString("nl-NL")}
-                                    </p>
+                                    </time>
                                 </div>
                             </ViewTransition>
                         </li>

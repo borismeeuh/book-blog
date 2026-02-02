@@ -19,9 +19,14 @@ export default async function BlogPost({ params }: BlogPostProps) {
             </ViewTransition>
 
             <ViewTransition name={`blog-genres-${post.slug}`}>
-                <p className="text-stone-800 dark:text-stone-50 opacity-75 text-sm">
-                    {post.author} – {post.genre.join(", ")}
-                </p>
+                <div className="flex justify-between gap-2">
+                    <p className="text-stone-800 dark:text-stone-50 opacity-75 text-sm">
+                        {post.author} – {post.genre.join(", ")}
+                    </p>
+                    <time dateTime={post.date.toISOString().slice(0, 10)} className="text-sm text-stone-800 dark:text-stone-50 opacity-75">
+                        {post.date.toLocaleDateString("nl-NL")}
+                    </time>
+                </div>
             </ViewTransition>
 
             <div
