@@ -61,7 +61,6 @@ export default function BlogListWithFilters({ posts, lang }: Props) {
             : b.date.getTime() - a.date.getTime();
     });
 
-    console.log(`/images/covers/${posts[0].image}`)
     return (
         <section className="space-y-6">
             <div className="flex flex-col sm:flex-row gap-4">
