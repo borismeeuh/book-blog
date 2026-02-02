@@ -6,6 +6,7 @@ genre:
   - Geschiedenis
   - Non-fictie
   - Klassieke oudheid
+image: "thucydides-the-peloponnesian-war.png"
 ---
 
 Thucydides' *Geschiedenis van de Peloponnesische Oorlog* is een van de meest invloedrijke historische werken uit de klassieke oudheid. In dit boek beschrijft hij in nauwkeurig detail de oorlog tussen Athene en Sparta, inclusief de politieke intriges, militaire strategieën en menselijke tragedies die de strijd vormden.

@@ -6,6 +6,7 @@ date: "2022-03-29"
 genre:
   - Philosophy
   - Classical Antiquity
+image: "plato-the-republic.png"
 ---
 
 Plato’s *The Republic* is a foundational philosophical work in which he explores the nature of justice, the structure of the ideal state, and the role of philosophy in society.

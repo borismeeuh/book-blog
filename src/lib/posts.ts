@@ -56,6 +56,7 @@ export function getAllPosts(lang: string) {
             author: data.author,
             date: new Date(data.date),
             genre: data.genre,
+            image: data.image,
             lang,
         };
     });

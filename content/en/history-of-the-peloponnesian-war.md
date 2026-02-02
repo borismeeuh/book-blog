@@ -6,6 +6,7 @@ genre:
   - History
   - Non-fiction
   - Classical antiquity
+image: "thucydides-the-peloponnesian-war.png"
 ---
 
 Thucydides’ *History of the Peloponnesian War* is one of the most influential historical works of classical antiquity. In this book, he gives a detailed account of the conflict between Athens and Sparta, including the political maneuvering, military strategies, and human tragedies that shaped the war.

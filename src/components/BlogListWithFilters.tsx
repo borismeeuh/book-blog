@@ -3,12 +3,14 @@
 import { useState, useEffect, ViewTransition } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 
 interface BlogPost {
     slug: string;
     title: string;
     author: string;
     genre: string[];
+    image: string;
     date: Date;
 }
 
@@ -59,6 +61,7 @@ export default function BlogListWithFilters({ posts, lang }: Props) {
             : b.date.getTime() - a.date.getTime();
     });
 
+    console.log(`/images/covers/${posts[0].image}`)
     return (
         <section className="space-y-6">
             <div className="flex flex-col sm:flex-row gap-4">
@@ -101,15 +104,26 @@ export default function BlogListWithFilters({ posts, lang }: Props) {
                 </button>
             </div>
 
-            <ul className="space-y-3">
+            <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 space-y-3">
                 {filteredPosts.length > 0 ? (
                     filteredPosts.map((post) => (
-                        <li key={post.slug} className="border-b border-stone-800 dark:border-b-stone-50 pb-2">
+                        <li key={post.slug} className="flex flex-col pb-2">
                             <ViewTransition name={`blog-title-${post.slug}`}>
                                 <Link
                                     href={`/${lang}/blogs/${post.slug}`}
                                     hrefLang={lang}
                                 >
+                                    <div className="rounded-md overflow-hidden mb-3 w-full sm:w-auto">
+                                        <Image
+                                            alt={post.title}
+                                            className="hover:scale-110 transition duration-300 hover:cursor-pointer w-full lg:w-auto"
+                                            height={400}
+                                            sizes="(max-width: 768px) 100vw, 33vw"
+                                            src={`/images/covers/${post.image}`}
+                                            width={400}
+                                        />
+                                    </div>
+
                                     <h2 className="text-xl font-semibold hover:underline text-stone-800 dark:text-stone-50">
                                         {post.title}
                                     </h2>
@@ -117,8 +131,8 @@ export default function BlogListWithFilters({ posts, lang }: Props) {
                             </ViewTransition>
 
                             <ViewTransition name={`blog-genres-${post.slug}`}>
-                                <div className="flex flex-wrap justify-between">
-                                    <p className="text-sm text-stone-800 dark:text-stone-50 opacity-75">
+                                <div className="flex flex-col flex-1 justify-between">
+                                    <p className="text-sm text-stone-800 dark:text-stone-50 opacity-75 mb-3">
                                         {post.author} – {post.genre.join(", ")}
                                     </p>
                                     <time dateTime={post.date.toISOString().slice(0, 10)} className="text-sm text-stone-800 dark:text-stone-50 opacity-75">

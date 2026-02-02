@@ -6,6 +6,7 @@ date: "2022-03-29"
 genre:
   - Filosofie
   - Klassieke oudheid
+image: "plato-the-republic.png"
 ---
 
 Plato's *De Staat* (*Politeia*) is een filosofisch meesterwerk waarin hij onderzoekt wat rechtvaardigheid is, hoe een ideale staat eruit zou moeten zien en welke rol filosofie in de samenleving speelt.
