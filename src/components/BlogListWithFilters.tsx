@@ -112,16 +112,18 @@ export default function BlogListWithFilters({ posts, lang }: Props) {
                                     href={`/${lang}/blogs/${post.slug}`}
                                     hrefLang={lang}
                                 >
-                                    <div className="rounded-md overflow-hidden mb-3 w-full sm:w-auto">
-                                        <Image
-                                            alt={post.title}
-                                            className="hover:scale-110 transition duration-300 hover:cursor-pointer w-full lg:w-auto"
-                                            height={400}
-                                            sizes="(max-width: 768px) 100vw, 33vw"
-                                            src={`/images/covers/${post.image}`}
-                                            width={400}
-                                        />
-                                    </div>
+                                    <ViewTransition name={`blog-title-image-${post.slug}`}>
+                                        <div className="rounded-md overflow-hidden mb-3 w-full sm:w-auto">
+                                            <Image
+                                                alt={post.title}
+                                                className="hover:scale-110 transition duration-300 hover:cursor-pointer w-full lg:w-auto"
+                                                height={400}
+                                                sizes="(max-width: 768px) 100vw, 33vw"
+                                                src={`/images/covers/${post.image}`}
+                                                width={400}
+                                            />
+                                        </div>
+                                    </ViewTransition>
 
                                     <h2 className="text-xl font-semibold hover:underline text-stone-800 dark:text-stone-50">
                                         {post.title}

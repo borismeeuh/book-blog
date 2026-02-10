@@ -27,6 +27,7 @@ export async function getPost(lang: string, slug: string) {
         author: data.author,
         date: new Date(data.date),
         genre: data.genre,
+        image: data.image,
         lang,
     };
 }
