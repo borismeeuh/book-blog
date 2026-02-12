@@ -131,16 +131,18 @@ export default function BlogListWithFilters({ posts, lang }: Props) {
                                 </Link>
                             </ViewTransition>
 
-                            <ViewTransition name={`blog-genres-${post.slug}`}>
                                 <div className="flex flex-col flex-1 justify-between">
-                                    <p className="text-sm text-stone-800 dark:text-stone-50 opacity-75 mb-3">
-                                        {post.author} – {post.genre.join(", ")}
-                                    </p>
-                                    <time dateTime={post.date.toISOString().slice(0, 10)} className="text-sm text-stone-800 dark:text-stone-50 opacity-75">
-                                        {post.date.toLocaleDateString("nl-NL")}
-                                    </time>
+                                    <ViewTransition name={`blog-genres-${post.slug}`}>
+                                        <p className="text-sm text-stone-800 dark:text-stone-50 opacity-75 mb-3">
+                                            {post.author} – {post.genre.join(", ")}
+                                        </p>
+                                    </ViewTransition>
+                                    <ViewTransition name={`blog-date-${post.slug}`}>
+                                        <time dateTime={post.date.toISOString().slice(0, 10)} className="text-sm text-stone-800 dark:text-stone-50 opacity-75">
+                                            {post.date.toLocaleDateString("nl-NL")}
+                                        </time>
+                                    </ViewTransition>
                                 </div>
-                            </ViewTransition>
                         </li>
                     ))
                 ) : (

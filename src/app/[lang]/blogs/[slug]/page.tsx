@@ -24,27 +24,24 @@ export default async function BlogPost({ params }: BlogPostProps) {
                         <h1 className="text-3xl font-bold text-stone-800 dark:text-stone-50">{post.title}</h1>
                     </ViewTransition>
 
-                    <ViewTransition name={`blog-genres-${post.slug}`}>
-                        <div className="flex justify-between gap-2">
-                            <p className="text-stone-800 dark:text-stone-50 opacity-75 text-sm">
-                                {post.author} – {post.genre.join(", ")}
-                            </p>
+                    <ViewTransition name={`blog-date-${post.slug}`}>
+                        <p className="flex justify-between gap-2">
                             <time dateTime={post.date.toISOString().slice(0, 10)} className="text-sm text-stone-800 dark:text-stone-50 opacity-75">
                                 {post.date.toLocaleDateString("nl-NL")}
                             </time>
-                        </div>
+                        </p>
                     </ViewTransition>
                 </header>
             </div>
 
-            <div className="none md:block"></div>
+            <div aria-hidden="true" className="none md:block"></div>
 
-            <section
+            <div
                 className="prose prose-zinc dark:prose-invert text-stone-800 dark:text-stone-50 order-3"
                 dangerouslySetInnerHTML={{ __html: post.contentHtml }}
             />
 
-            <aside className="order-2 md:order-4">
+            <aside className="order-2 md:order-4 sticky top-4 h-fit">
                 <ViewTransition name={`blog-title-image-${post.slug}`}>
                     <figure className="rounded-md overflow-hidden mb-3 w-full sm:w-auto">
                         <Image
@@ -56,6 +53,20 @@ export default async function BlogPost({ params }: BlogPostProps) {
                             width={400}
                         />
                     </figure>
+
+                    <ViewTransition name={`blog-genres-${post.slug}`}>
+                        <dl>
+                            <div className="text-stone-800 dark:text-stone-50 opacity-75 text-sm border-b border-stone-800 dark:border-stone-50 py-2 flex gap-2 justify-between">
+                                <dt className="font-semibold">{lang === 'nl' ? 'Auteur' : 'Author'}</dt><dd className="text-right">{post.author}</dd>
+                            </div>
+                            <div className="text-stone-800 dark:text-stone-50 opacity-75 text-sm border-b border-stone-800 dark:border-stone-50 py-2 flex gap-2 justify-between">
+                                <dt className="font-semibold">Genres</dt><dd className="text-right">{post.genre.join(", ")}</dd>
+                            </div>
+                            <div className="text-stone-800 dark:text-stone-50 opacity-75 text-sm border-b border-stone-800 dark:border-stone-50 py-2 flex gap-2 justify-between">
+                                <dt className="font-semibold">{lang === 'nl' ? 'Publicatie datum' : 'Publication date'}</dt><dd className="text-right">{post.publication_date}</dd>
+                            </div>
+                        </dl>
+                    </ViewTransition>
                 </ViewTransition>
             </aside>
         </article>

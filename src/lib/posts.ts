@@ -28,6 +28,7 @@ export async function getPost(lang: string, slug: string) {
         date: new Date(data.date),
         genre: data.genre,
         image: data.image,
+        publication_date: data.publication_date,
         lang,
     };
 }

@@ -7,10 +7,11 @@ genre:
   - Non-fictie
   - Klassieke oudheid
 image: "thucydides-the-peloponnesian-war.png"
+publication_date: "Late vijfde eeuw"
 ---
 
-Thucydides' *Geschiedenis van de Peloponnesische Oorlog* is een van de meest invloedrijke historische werken uit de klassieke oudheid. In dit boek beschrijft hij in nauwkeurig detail de oorlog tussen Athene en Sparta, inclusief de politieke intriges, militaire strategieën en menselijke tragedies die de strijd vormden.
+De Geschiedenis van de Peloponnesische Oorlog van Thucydides behoort tot de meest invloedrijke historische werken uit de klassieke oudheid en vormt een belangrijk fundament van de westerse geschiedschrijving. Het werk werd geschreven in de late vijfde eeuw voor Christus door een Atheense generaal die de oorlog van dichtbij meemaakte. Thucydides geeft een uitvoerig en systematisch verslag van het langdurige en verwoestende conflict tussen Athene en Sparta. Daarbij beschrijft hij niet alleen de militaire campagnes en veldslagen, maar ook de politieke intriges, wisselende bondgenootschappen en interne spanningen binnen de Griekse stadstaten die het verloop van de oorlog bepaalden.
 
-In tegenstelling tot veel van zijn voorgangers streefde Thucydides naar een rationele en feitelijke benadering van de geschiedenis. Hij vermijdt mythes en goddelijke interventie en legt de nadruk op oorzaken, gevolgen en menselijke besluitvorming. Daardoor wordt zijn werk vaak beschouwd als de eerste echte poging tot wetenschappelijke geschiedschrijving.
+In tegenstelling tot veel eerdere geschiedschrijvers verwerpt Thucydides mythische verklaringen en goddelijke inmenging. Hij hanteert een rationele en analytische benadering van de geschiedenis, waarbij hij sterk de nadruk legt op oorzaak en gevolg, menselijk handelen en politieke besluitvorming. Een opvallend element in zijn werk is het gebruik van redevoeringen, die hij reconstrueert om de motieven, belangen en ideologische tegenstellingen van de betrokken leiders en staten inzichtelijk te maken, zoals die tussen democratie, oligarchie en imperialistische ambities.
 
-Het resultaat is een meeslepende, analytische en soms sombere blik op macht, democratie, ambitie en de onvoorspelbaarheid van oorlog.
+Het resultaat is een nuchtere, diepgaande en soms sombere analyse van oorlog en macht. De Geschiedenis van de Peloponnesische Oorlog wordt vaak beschouwd als de eerste echte poging tot wetenschappelijke geschiedschrijving. Het werk laat zien hoe oorlog leidt tot moreel verval, geweld en menselijk leed, en biedt een tijdloze reflectie op machtsverhoudingen, de kwetsbaarheid van democratische systemen en de onvoorspelbaarheid van menselijke conflicten.
