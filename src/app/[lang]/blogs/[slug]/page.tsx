@@ -41,7 +41,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
                 dangerouslySetInnerHTML={{ __html: post.contentHtml }}
             />
 
-            <aside className="order-2 md:order-4 sticky top-4 h-fit">
+            <aside className="order-2 md:order-4 md:sticky md:top-4 md:h-fit">
                 <ViewTransition name={`blog-title-image-${post.slug}`}>
                     <figure className="rounded-md overflow-hidden mb-3 w-full sm:w-auto">
                         <Image
